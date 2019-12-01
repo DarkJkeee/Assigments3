@@ -14,9 +14,10 @@ namespace Assigments3
         static Random random = new Random();
         static void Main()
         {
+            // Цикл повтора решения.
             do
             {
-
+                // Очистка консоли перед новым решением.
                 Console.Clear();
                 int i = 0;
                 int j = 0;
@@ -29,11 +30,14 @@ namespace Assigments3
                 string name1 = Console.ReadLine();
                 Console.WriteLine("Введите имя второго игрока: ");
                 string name2 = Console.ReadLine();
+
                 Console.Clear();
 
+                // Создания списков танков у первого и второго игрока.
                 List<Tank> tanksp1 = new List<Tank>();
                 List<Tank> tanksp2 = new List<Tank>();
 
+                // Вызов метода с меню выбора танков.
                 while (money1 >= 3 && size1 > 0)
                 {
                     if (check == false)
@@ -49,6 +53,7 @@ namespace Assigments3
 
                 Console.WriteLine($"{name1} закончил собирать отряд.\n");
 
+                // Вызов метода с меню выбора танков.
                 while (money2 >= 3 && size2 > 0)
                 {
                     if (check == false)
@@ -64,24 +69,44 @@ namespace Assigments3
 
                 Console.WriteLine("Начало игры...\n\n");
 
-                if (random.Next(0, 2) == 0)
-                {
-                    FightField fight = new FightField(tanksp1, tanksp2, name1, name2);
-                    fight.Fight();
-                }
-                else
-                {
-                    FightField fight = new FightField(tanksp2, tanksp1, name2, name1);
-                    fight.Fight();
-                }
 
+                try
+                {
+                    // Случайный выбор игрока, который начинает игру.
+                    if (random.Next(0, 2) == 0)
+                    {
+                        // Создание экземпляра класса поля битвы.
+                        FightField fight = new FightField(tanksp1, tanksp2, name1, name2);
+                        // Вызов метода боя.
+                        fight.Fight();
+                    }
+                    else
+                    {
+                        // Создание экземпляра класса поля битвы.
+                        FightField fight = new FightField(tanksp2, tanksp1, name2, name1);
+                        // Вызов метода боя.
+                        fight.Fight();
+                    }
+                }
+                catch(IndexOutOfRangeException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                
                 Console.WriteLine("Желаете продолжить игру?...");
                 Console.WriteLine("Если да - нажмите F");
 
+                // Повтор решения.
             } while (Console.ReadKey().Key == ConsoleKey.F);
-            
         }
 
+        /// <summary>
+        /// Метод, который описывает меню с выбором танков игроком.
+        /// </summary>
+        /// <param name="size"></param>
+        /// <param name="tankp"></param>
+        /// <param name="money"></param>
+        /// <param name="check"></param>
         static void MenuOfChoice(ref int size, ref List<Tank> tankp, ref int money, ref bool check)
         {
             Console.WriteLine("Выбирай танки: ");
