@@ -1,0 +1,7 @@
+C:\Users\1\source\repos\Assigments3\Assigments3\obj\Debug\Assigments3.csprojAssemblyReference.cache
+C:\Users\1\source\repos\Assigments3\Assigments3\obj\Debug\Assigments3.csproj.CoreCompileInputs.cache
+C:\Users\1\source\repos\Assigments3\Assigments3\bin\Debug\Assigments3.exe.config
+C:\Users\1\source\repos\Assigments3\Assigments3\bin\Debug\Assigments3.exe
+C:\Users\1\source\repos\Assigments3\Assigments3\bin\Debug\Assigments3.pdb
+C:\Users\1\source\repos\Assigments3\Assigments3\obj\Debug\Assigments3.exe
+C:\Users\1\source\repos\Assigments3\Assigments3\obj\Debug\Assigments3.pdb
